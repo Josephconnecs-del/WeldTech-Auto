@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeldTech Auto | Precision Auto Repair & Welding</title>
+    <style>
+        /* --- COLOR THEME VARIABLES --- */
+        /* Update these hex codes to match the WeldTech Auto logo exactly */
+        :root {
+            --primary-color: #FF5722; /* Industrial Orange */
+            --primary-hover: #E64A19;
+            --dark-bg: #1A1C20; /* Metallic Dark Grey */
+            --light-bg: #F4F4F9;
+            --text-main: #333333;
+            --white: #FFFFFF;
+            --whatsapp-green: #25D366;
+            --whatsapp-hover: #128C7E;
+        }
+
+        /* Base Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { color: var(--text-main); line-height: 1.6; background-color: var(--white); }
+        h1, h2, h3 { margin-bottom: 15px; color: var(--dark-bg); }
+        a { text-decoration: none; color: inherit; }
+        .container { width: 90%; max-width: 1200px; margin: auto; padding: 60px 0; }
+        
+        /* Buttons */
+        .btn { display: inline-block; padding: 12px 24px; background: var(--primary-color); color: var(--white); border: none; cursor: pointer; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .btn:hover { background: var(--primary-hover); }
+        .btn-wa { background: var(--whatsapp-green); color: var(--white); }
+        .btn-wa:hover { background: var(--whatsapp-hover); }
+
+        /* Navigation */
+        header { background: var(--dark-bg); color: var(--white); padding: 20px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; width: 90%; max-width: 1200px; margin: auto; }
+        .logo { font-size: 28px; font-weight: 900; color: var(--white); text-transform: uppercase; letter-spacing: 2px; }
+        .logo span { color: var(--primary-color); }
+        .nav-links a { margin: 0 15px; color: var(--white); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(26, 28, 32, 0.85), rgba(26, 28, 32, 0.85)), url('https://images.unsplash.com/photo-1617195737496-bc30194e3a19?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover; height: 85vh; display: flex; align-items: center; text-align: left; color: var(--white); }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--white); line-height: 1.2; text-transform: uppercase; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; color: #CCCCCC; }
+
+        /* Section Styling */
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.5rem; text-transform: uppercase; position: relative; display: inline-block; }
+        .section-header h2::after { content: ''; width: 60px; height: 4px; background: var(--primary-color); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        .bg-grey { background: var(--light-bg); }
+
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: var(--white); padding: 30px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--primary-color); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { color: var(--dark-bg); margin-bottom: 15px; }
+
+        /* Gallery Grid (Reserved) */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-item { width: 100%; height: 250px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border-radius: 6px; overflow: hidden; position: relative; border: 1px solid #CCC; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; color: white; opacity: 0; transition: opacity 0.3s; font-weight: bold; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        /* Contact & CTA Section */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-details p { font-size: 1.1rem; margin-bottom: 15px; }
+        .contact-details strong { color: var(--primary-color); }
+        .wa-box { background: #E8F5E9; padding: 30px; border-radius: 8px; border-left: 6px solid var(--whatsapp-green); margin-top: 20px; }
+        .wa-box h3 { color: #2E7D32; }
+
+        /* Footer */
+        footer { background: var(--dark-bg); color: #888; text-align: center; padding: 30px 0; }
+        footer p { margin-top: 10px; }
+
+        /* Mobile Optimization */
+        @media(max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { text-align: center; }
+            .hero p { margin: 0 auto 30px auto; }
+            .hero h1 { font-size: 2.5rem; }
+            .contact-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-wrapper">
+            <div class="logo">WeldTech <span>Auto</span></div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="https://wa.me/27820000000?text=Hi%20WeldTech%20Auto,%20I%20would%20like%20to%20book%20an%20appointment." class="btn btn-wa" target="_blank">Book Now</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Industrial Strength.<br>Precision Repairs.</h1>
+            <p>Your trusted auto engineering and professional welding specialists serving Gqeberha and the wider Eastern Cape.</p>
+            <a href="https://wa.me/27820000000?text=Hi%20WeldTech%20Auto,%20I%20need%20a%20quote." class="btn btn-wa" target="_blank">WhatsApp Us for a Quote</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <div class="section-header">
+            <h2>About WeldTech Auto</h2>
+        </div>
+        <p style="text-align: center; max-width: 800px; margin: auto; font-size: 1.1rem;">
+            At WeldTech Auto, we merge automotive mechanical expertise with heavy-duty welding precision. Whether you need custom exhaust fabrication, structural chassis repairs, or general mechanical troubleshooting, our workshop is equipped to handle complex metalwork and auto repairs under one roof. We pride ourselves on durability, safety, and top-tier workmanship.
+        </p>
+    </section>
+
+    <section id="services" class="bg-grey">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Custom Welding & Fabrication</h3>
+                    <p>TIG and MIG welding for automotive parts, roll cages, brackets, and custom metalwork designed to your specifications.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Chassis & Structural Repair</h3>
+                    <p>Professional rust repair, crack patching, and structural chassis reinforcement to ensure your vehicle is roadworthy and safe.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Exhaust Systems</h3>
+                    <p>Custom exhaust manufacturing, manifold repairs, and performance exhaust installations for all vehicle makes and models.</p>
+                </div>
+                <div class="service-card">
+                    <h3>General Auto Repairs</h3>
+                    <p>Comprehensive mechanical servicing, suspension work, and engine diagnostics keeping your car running at peak performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="container">
+        <div class="section-header">
+            <h2>Project Gallery</h2>
+        </div>
+        <p style="text-align: center; margin-bottom: 40px; color: #666;">
+            <em>Space reserved for live workshop images, before/after repairs, and custom fabrications. (Upload 1080p web-optimized images here).</em>
+        </p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400/1A1C20/FFFFFF?text=Workshop+Image+1" alt="Workshop Image 1">
+                <div class="gallery-overlay">Custom Exhaust Work</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400/1A1C20/FFFFFF?text=Workshop+Image+2" alt="Workshop Image 2">
+                <div class="gallery-overlay">Chassis Welding</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400/1A1C20/FFFFFF?text=Workshop+Image+3" alt="Workshop Image 3">
+                <div class="gallery-overlay">Before & After Repair</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400/1A1C20/FFFFFF?text=Workshop+Image+4" alt="Workshop Image 4">
+                <div class="gallery-overlay">Team at Work</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-grey">
+        <div class="container contact-container">
+            <div>
+                <div class="section-header" style="text-align: left;">
+                    <h2>Visit The Workshop</h2>
+                </div>
+                <div class="contact-details">
+                    <p><strong>📍 Address:</strong> [Insert Real Street Address], Gqeberha, Eastern Cape</p>
+                    <p><strong>🕒 Trading Hours:</strong> Mon - Fri (08:00 - 17:00) | Sat (08:00 - 13:00)</p>
+                    <p><strong>📞 Phone:</strong> [Insert Real Phone Number]</p>
+                    <p><strong>✉️ Email:</strong> info@weldtechauto.co.za</p>
+                </div>
+            </div>
+            
+            <div class="wa-box">
+                <h3>Skip the Line. Book via WhatsApp.</h3>
+                <p>Need a fast quote or want to drop off your vehicle? The quickest way to reach our mechanics is by sending us a message directly on WhatsApp with photos of what needs repairing.</p>
+                <br>
+                <a href="https://wa.me/27820000000?text=Hi%20WeldTech%20Auto,%20I%20would%20like%20to%20book%20an%20appointment." class="btn btn-wa" style="width: 100%; text-align: center; font-size: 1.1rem;" target="_blank">
+                    Open WhatsApp Chat
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding: 20px 0;">
+            <h3 style="color: var(--white); margin-bottom: 5px;">WeldTech Auto</h3>
+            <p>&copy; 2026 WeldTech Auto. All Rights Reserved.</p>
+            <p style="font-size: 0.85rem;">Designed for optimal mobile performance.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
